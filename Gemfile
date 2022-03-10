@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-# Specify your gem's dependencies in hello_sign.gemspec
+# Specify your gem's dependencies in hellosign-api.gemspec
 gemspec
 
 group :development, :spec do
