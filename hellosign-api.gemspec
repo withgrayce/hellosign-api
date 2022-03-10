@@ -35,7 +35,7 @@ Gem::Specification.new do |spec|
   spec.email         = 'aubrey@withgrayce.com'
   spec.summary       = 'A Ruby SDK for the HelloSign API.'
   spec.description   = ''
-  spec.homepage      = 'http://www.hellosign.com'
+  spec.homepage      = 'https://github.com/withgrayce/hellosign-api'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0")
