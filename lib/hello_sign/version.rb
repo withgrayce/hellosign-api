@@ -21,5 +21,5 @@
 # SOFTWARE.
 
 module HelloSign
-  VERSION = '3.7.10'
+  VERSION = '1.0.0'
 end
