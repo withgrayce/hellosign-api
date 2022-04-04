@@ -176,6 +176,7 @@ module HelloSign
         prepare_files opts
         prepare_signer_roles opts
         prepare_attachments opts
+        prepare_merge_fields opts
         HelloSign::Resource::TemplateDraft.new post("/template/create_embedded_draft", body: opts)
       end
 

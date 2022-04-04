@@ -169,4 +169,36 @@ describe HelloSign::Api::Template do
       expect(@template.headers).to_not be_nil
     end
   end
+
+  describe '#create_embedded_template_draft' do
+    before do
+      stub_post('/template/create_embedded_draft', 'template_draft')
+      @template_draft = HelloSign.create_embedded_template_draft :title => 'Document Test', :file_url => 'http://hellosign.com/test.pdf'
+    end
+
+    it 'should return a Template Draft' do
+      expect(@template_draft).to be_an HelloSign::Resource::TemplateDraft
+    end
+
+    it 'should return response headers' do
+      expect(@template_draft.headers).to_not be_nil
+    end
+
+    context 'with multiple signer_roles' do
+      before do
+        stub_post('/template/create_embedded_draft', 'template_draft')
+        @template_draft = HelloSign.create_embedded_template_draft(
+          :title => 'Document Test',
+          :file_url => 'http://hellosign.com/test.pdf',
+          :signer_roles => [{ :name => 'Employee' }, { :name => 'CEO' }]
+        )
+      end
+
+      it 'should send signer_roles as json' do
+        expect(a_post('/template/create_embedded_draft').with(
+          :body => hash_including({ :signer_roles => [{ :name => 'Employee' }, { :name => 'CEO' }] }))
+        ).to have_been_made
+      end
+    end
+  end
 end
