@@ -4,7 +4,7 @@
 
 Add this line to your application's Gemfile:
 
-    gem 'hellosign'
+    gem 'hellosign-api'
 
 And then execute:
 
@@ -27,6 +27,7 @@ end
 ```
 
 ## Usage
+
 When you have configured your app like above, you can start using it:
 
 ```ruby
@@ -41,13 +42,16 @@ signature_request = HelloSign.get_signature_request signature_request_id: '42383
 ```
 
 If you need to authenticate for multiple users and you want a separated client for them, you can run:
+
 ```ruby
 client2 = HelloSign::Client.new api_key: 'your_user_api_key'
 user_account = client2.get_account
 ```
+
 ### Specifying files
 
 When using request endpoints that send files, such as a signature request, you can specify files either as
+
 1. A string representing the path
 2. A Ruby File Object (File.open, then assign to a variable)
 3. A Rails ActionDispatch::Http::UploadedFile
@@ -60,16 +64,17 @@ from the root of your project run <code>rake spec</code>.
 ## Additional notes
 
 ## Warnings
+
 Any warnings returned from the API can be accessed by using the 'warnings' accessor on a returned object or list:
 
-````ruby
+```ruby
 my_signature_requests = client.get_signature_requests
 puts my_signature_requests.warnings
-````
+```
 
 and will give output of warnings in the following format (as an array of hashes):
 
-````
+```
 [
     [0] {
          "warning_msg" => "Parameter hodor was ignored. Hodor.",
@@ -80,9 +85,10 @@ and will give output of warnings in the following format (as an array of hashes)
         "warning_name" => "unconfirmed"
     }
 ]
-````
+```
 
 ### Local callbacks
+
 We do not allow app callbacks (event or OAuth) to be set to localhost. However it is still possible to test callbacks against a local server. Tunneling services such as ngrok (http://ngrok.com) can help you set this up.
 
 ## License
