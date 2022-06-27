@@ -4,7 +4,7 @@
 
 Add this line to your application's Gemfile:
 
-    gem 'hellosign'
+    gem 'hellosign-api'
 
 And then execute:
 
