@@ -1,10 +1,15 @@
 # HelloSign Ruby SDK
 
+This is a clone due to the main repository being abandoned and not locking the Faraday gem version and not working correctly with Faraday > 2.0 .
+This repo has been updated to support Faraday >~ 2.0.
+
+If the main gem is updated, this clone will no longer be necessary
+
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'hellosign-api'
+    gem "hellosign-api", github: "oysterhr/hellosign-api"
 
 And then execute:
 
